@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
@@ -12,6 +12,8 @@ import { EditConfirmationDialogComponent } from '../../components/dialogs/edit/c
   styleUrls: ['./edit-product.component.css']
 })
 export class EditProductComponent implements OnInit {
+  @Output() productUpdated = new EventEmitter<void>();
+
   productForm!: FormGroup;
   productId!: string;
   categories = Object.values(ProductCategory);
@@ -38,7 +40,7 @@ export class EditProductComponent implements OnInit {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       category: ['', Validators.required],
-      price: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+      price: ['', [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       description: [''],
       photoUrl: ['', [Validators.required, Validators.pattern("https?://.+")]]
     });
@@ -81,6 +83,7 @@ export class EditProductComponent implements OnInit {
       const updatedProduct: Product = this.productForm.value;
       this.productService.updateProduct(this.productId, updatedProduct).subscribe(
         () => {
+          this.productUpdated.emit();
           this.router.navigate(['/list-products']);
         },
         (error) => {

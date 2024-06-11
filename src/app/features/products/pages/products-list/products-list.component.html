@@ -1,6 +1,17 @@
-
 <h1>Lista de Productos</h1>
 
-<button mat-raised-button color="primary" routerLink="/create">+ Añadir un Producto Nuevo al Supermercado</button>
+<div class="button-container">
+  <button mat-raised-button color="primary" routerLink="/create">+ Añadir un Producto Nuevo al Supermercado</button>
+</div>
 
-<card-component />
+<div class="container">
+  <div class="row">
+    <ng-container *ngFor="let product of products">
+      <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+        <div class="card-wrapper">
+          <card-component [product]="product" (productDeleted)="fetchProducts()"></card-component>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>

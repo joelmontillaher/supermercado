@@ -1,6 +1,27 @@
 :host {
   display: block;
 }
-button{
-  color: greenyellow;
+h1{
+  font-size: 25px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+}
+
+.card-wrapper {
+  padding: 15px;
+}
+.card-content {
+  font-size: 14px;
+}
+
+.product-image {
+  max-width: 100%;
 }

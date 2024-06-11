@@ -11,7 +11,7 @@
     {
       "name": "Macarrones",
       "category": "Lácteos",
-      "price": 2,
+      "price": 2.5,
       "description": "Descripción del Producto 2",
       "photoUrl": "https://a1.soysuper.com/8bc68c03be8ef3b1e67af6874344192e.1500.0.0.0.wmark.84bcadc9.jpg",
       "id": "2"
@@ -39,22 +39,6 @@
       "description": "vbcv ",
       "photoUrl": "https://supercostablanca.es/4066-large_default/heinz-tomato-ketchup-570g.jpg",
       "id": "57f7"
-    },
-    {
-      "id": "42a6",
-      "name": "Naranjas",
-      "category": "Fruta",
-      "price": 3,
-      "description": "Naranjas para exprimir.",
-      "photoUrl": "https://www.recetasamc.info/sites/default/files/styles/max_width_1000/public/migrate/ingredient-wiki/1524656366-amc-wiki-id2706-image40.png?itok=4fcdsqkp"
-    },
-    {
-      "id": "ebd0",
-      "name": "Vulmasss",
-      "category": "Snack",
-      "price": 2,
-      "description": "sad",
-      "photoUrl": "https://www.deskidea.com/17023-large_default/agua-mineral-natural-font-vella-botella-de-33-cl.jpg"
     }
   ]
 }

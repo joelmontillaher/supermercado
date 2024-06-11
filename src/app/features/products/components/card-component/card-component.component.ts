@@ -1,35 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDeleteDialogComponent } from '../dialogs/delete/confirm-delete-dialog.component';
+import { ProductService } from '../../services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'card-component',
   templateUrl: './card-component.component.html',
   styleUrls: ['./card-component.component.css']
 })
-export class CardComponentComponent implements OnInit {
-  products: any[] = [];
+export class CardComponentComponent {
+  @Input() product: any;
+  @Output() productDeleted = new EventEmitter<void>();
 
-  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) {}
-
-  ngOnInit(): void {
-    this.fetchProducts();
-  }
-
-  fetchProducts() {
-    this.http.get<any[]>('http://localhost:8000/productos').subscribe(
-      (response) => {
-        this.products = response;
-      },
-      (error) => {
-        console.error('Error al recuperar los productos:', error);
-      }
-    );
-  }
+  constructor(
+    public dialog: MatDialog,
+    private productService: ProductService,
+    private router:Router,
+  ) {}
 
   onEdit(productId: string) {
+
     this.router.navigate(['/edit', productId]);
   }
 
@@ -46,10 +37,10 @@ export class CardComponentComponent implements OnInit {
     });
   }
 
-  deleteProduct(productId: string) {
-    this.http.delete(`http://localhost:8000/productos/${productId}`).subscribe(
+  private deleteProduct(productId: string) {
+    this.productService.deleteProduct(productId).subscribe(
       () => {
-        this.products = this.products.filter(product => product.id !== productId);
+        this.productDeleted.emit();
       },
       (error) => {
         console.error('Error al eliminar el producto:', error);
