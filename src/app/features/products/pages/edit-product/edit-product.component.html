@@ -1,0 +1,86 @@
+<mat-card>
+  <form [formGroup]="productForm" (ngSubmit)="openEditConfirmationDialog()">
+    <mat-label class=""><h1>Editar Producto</h1></mat-label>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput id="name" formControlName="name" required />
+        <mat-error *ngIf="productForm.controls['name'].getError('required')">
+          {{ 'El Nombre es requerido.'}}
+        </mat-error>
+        <mat-error *ngIf="productForm.controls['name'].getError('minlength')">
+          {{ 'Este campo requiere mínimo 3 letras.'}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Categoría</mat-label>
+        <mat-select id="category" formControlName="category" required>
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="productForm.controls['category'].getError('required')">
+          {{ 'La categoría es requerida.'}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Precio</mat-label>
+        <input
+          matInput
+          id="price"
+          formControlName="price"
+          type="number"
+          required
+        />
+        <mat-error *ngIf="productForm.controls['price'].getError('required')">
+          {{ 'El precio es requerido y debe ser un número.'}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <textarea
+          matInput
+          id="description"
+          formControlName="description"
+        ></textarea>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Foto URL</mat-label>
+        <input
+          matInput
+          id="photoUrl"
+          formControlName="photoUrl"
+          type="url"
+          required
+        />
+        <mat-error *ngIf="productForm.controls['photoUrl'].getError('required')">
+          {{ 'URL de foto es requerida y debe ser una URL válida.'}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div *ngIf="photoPreviewUrl">
+      <img
+
+        [src]="photoPreviewUrl"
+        alt="Vista previa de la foto"
+        style="max-width: 100%; max-height: 200px; "
+      />
+    </div>
+
+    <button mat-raised-button color="primary" >Editar Producto</button>
+
+  </form>
+</mat-card>
