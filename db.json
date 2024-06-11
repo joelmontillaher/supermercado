@@ -1,14 +1,6 @@
 {
   "productos": [
     {
-      "name": "Manzana",
-      "category": "Fruta",
-      "price": 1,
-      "description": "Descripción del Producto 1",
-      "photoUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNzquCvC8RuqfXZmRHPxwyeSEP2pUW9btuDQ&s",
-      "id": "1"
-    },
-    {
       "name": "Macarrones",
       "category": "Lácteos",
       "price": 2.5,
@@ -17,7 +9,7 @@
       "id": "2"
     },
     {
-      "name": "Berberechos",
+      "name": "Berberechos2",
       "category": "Lácteos",
       "price": 4,
       "description": "Berberechos del norte.",

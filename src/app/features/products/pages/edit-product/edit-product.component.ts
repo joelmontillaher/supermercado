@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { ProductCategory, Product } from '../../interface/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditConfirmationDialogComponent } from '../../components/dialogs/edit/confirm-edit-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-product',
@@ -24,7 +25,8 @@ export class EditProductComponent implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -84,6 +86,7 @@ export class EditProductComponent implements OnInit {
       this.productService.updateProduct(this.productId, updatedProduct).subscribe(
         () => {
           this.productUpdated.emit();
+          this.showSnackBar('El producto ha sido editado con éxito');
           this.router.navigate(['/list-products']);
         },
         (error) => {
@@ -93,5 +96,11 @@ export class EditProductComponent implements OnInit {
     } else {
       console.log('Formulario no válido');
     }
+  }
+
+  private showSnackBar(message: string):void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+   } )
   }
 }

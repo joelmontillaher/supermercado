@@ -15,10 +15,11 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
 import { ConfirmDeleteDialogComponent } from './components/dialogs/delete/confirm-delete-dialog.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditConfirmationDialogComponent } from './components/dialogs/edit/confirm-edit-dialog.component';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     ProductsListComponent,
-EditProductComponent,
+    EditProductComponent,
     CreateProductComponent,
     ProductsListComponent,
     CardComponentComponent,
@@ -36,6 +37,8 @@ EditProductComponent,
     MatSelectModule,
     NavbarModule,
     MatDialogModule,
+    MatSnackBarModule,
+
 
 
 

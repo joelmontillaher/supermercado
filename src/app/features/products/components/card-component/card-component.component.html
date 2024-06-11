@@ -7,6 +7,7 @@
   <img mat-card-image class="product-image" [src]="product.photoUrl" alt="Product Image">
   <mat-card-content class="card-content">
     <p *ngIf="product.description">{{ product.description }}</p>
+    <!-- <p>{{product.description || ' '}}</p>  jo pensava que aixo funcionaria-->
     <p class="price">Precio: {{ product.price }}€</p>
   </mat-card-content>
   <mat-card-actions class="card-actions">

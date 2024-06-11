@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar'; // Importa MatSnackBar
 import { ProductCategory } from '../../interface/product.interface';
 import { ProductService } from '../../services/product.service';
 
@@ -19,7 +20,8 @@ export class CreateProductComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private productService: ProductService
+    private productService: ProductService,
+    private snackBar: MatSnackBar
   ) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -46,6 +48,7 @@ export class CreateProductComponent {
           this.productForm.reset();
           this.photoPreviewUrl = '';
           this.productCreated.emit();
+          this.showSnackbar('El producto ha sido creado con éxito');
           this.router.navigate(['/list-products']);
         },
         (error) => {
@@ -55,5 +58,12 @@ export class CreateProductComponent {
     } else {
       console.log('Formulario no válido');
     }
+  }
+
+
+  private showSnackbar(message: string): void {
+    this.snackBar.open(message, 'Cerrar', {
+      duration: 3000,
+    });
   }
 }
