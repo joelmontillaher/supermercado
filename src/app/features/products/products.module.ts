@@ -16,6 +16,7 @@ import { ConfirmDeleteDialogComponent } from './components/dialogs/delete/confir
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { EditConfirmationDialogComponent } from './components/dialogs/edit/confirm-edit-dialog.component';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
 @NgModule({
   declarations: [
     ProductsListComponent,
@@ -38,6 +39,7 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
     NavbarModule,
     MatDialogModule,
     MatSnackBarModule,
+    LoaderModule
 
 
 

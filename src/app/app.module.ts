@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsModule } from './features/products/products.module';
+import { LoaderModule } from './shared/components/loader/loader.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ProductsModule } from './features/products/products.module';
     BrowserAnimationsModule,
     NavbarModule,
     HttpClientModule,
-    ProductsModule
+    ProductsModule,
+    LoaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
