@@ -4,17 +4,15 @@ import { ProductsListComponent } from './pages/products-list/products-list.compo
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: 'list-products', pathMatch: 'full' },
   { path: 'list-products', component: ProductsListComponent },
   { path: 'edit/:id', component: EditProductComponent },
-  { path: 'create', component: CreateProductComponent }
+  { path: 'create', component: CreateProductComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ProductsRoutingModule { }
-
+export class ProductsRoutingModule {}

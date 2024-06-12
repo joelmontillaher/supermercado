@@ -6,6 +6,8 @@ import { ProductCategory, Product } from '../../interface/product.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { EditConfirmationDialogComponent } from '../../components/dialogs/edit/confirm-edit-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../../../shared/components/snackBar-message/snackbar.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-edit-product',
@@ -26,7 +28,8 @@ export class EditProductComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     public dialog: MatDialog,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -55,17 +58,20 @@ export class EditProductComponent implements OnInit {
   }
 
   getProductDetails() {
-    this.productService.getProductById(this.productId).subscribe(
-      (product: Product) => {
+    this.spinner.show();
+    this.productService.getProductById(this.productId).subscribe({
+      next: (product: Product) => {
         this.productForm.patchValue(product);
         this.photoPreviewUrl = product.photoUrl;
       },
-      (error) => {
+      error: (error) => {
         console.error('Error al cargar el producto:', error);
+      },
+      complete: () => {
+        this.spinner.hide();
       }
-    );
+    });
   }
-
   openEditConfirmationDialog(): void {
     const dialogRef = this.dialog.open(EditConfirmationDialogComponent, {
       width: '250px',
@@ -83,24 +89,29 @@ export class EditProductComponent implements OnInit {
   onSubmit() {
     if (this.productForm.valid) {
       const updatedProduct: Product = this.productForm.value;
-      this.productService.updateProduct(this.productId, updatedProduct).subscribe(
-        () => {
+      this.spinner.show();
+      this.productService.updateProduct(this.productId, updatedProduct).subscribe({
+        next: response => {
           this.productUpdated.emit();
           this.showSnackBar('El producto ha sido editado con éxito');
           this.router.navigate(['/list-products']);
         },
-        (error) => {
+        error: error => {
           console.error('Error al actualizar el producto:', error);
+        },
+        complete: () => {
+          this.spinner.hide();
         }
-      );
+      });
     } else {
       console.log('Formulario no válido');
     }
   }
 
-  private showSnackBar(message: string):void {
-    this.snackBar.open(message, 'Cerrar', {
+  private showSnackBar(message: string): void {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: { message },
       duration: 3000,
-   } )
+    });
   }
 }

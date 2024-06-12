@@ -4,6 +4,8 @@ import { ConfirmDeleteDialogComponent } from '../dialogs/delete/confirm-delete-d
 import { ProductService } from '../../services/product.service';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SnackbarComponent } from '../../../../shared/components/snackBar-message/snackbar.component';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'card-component',
@@ -17,13 +19,18 @@ export class CardComponentComponent {
   constructor(
     public dialog: MatDialog,
     private productService: ProductService,
-    private router:Router,
-    private snackBar:MatSnackBar
+    private router: Router,
+    private snackBar: MatSnackBar,
+    private spinner: NgxSpinnerService,
   ) {}
 
   onEdit(productId: string) {
-
-    this.router.navigate(['/edit', productId]);
+    this.spinner.show();
+    this.router.navigate(['/edit', productId]).then(() => {
+      this.spinner.hide();
+    }).catch(() => {
+      this.spinner.hide();
+    });
   }
 
   onDelete(productId: string) {
@@ -40,18 +47,24 @@ export class CardComponentComponent {
   }
 
   private deleteProduct(productId: string) {
-    this.productService.deleteProduct(productId).subscribe(
-      () => {
+
+    this.productService.deleteProduct(productId).subscribe({
+      next: () => {
         this.productDeleted.emit();
         this.showSnackbar('El producto ha sido eliminado con éxito');
       },
-      (error) => {
+      error: error => {
         console.error('Error al eliminar el producto:', error);
+      },
+      complete: () => {
+
       }
-    );
+    });
   }
+
   private showSnackbar(message: string): void {
-    this.snackBar.open(message, 'Cerrar', {
+    this.snackBar.openFromComponent(SnackbarComponent, {
+      data: { message },
       duration: 3000,
     });
   }

@@ -13,10 +13,11 @@ import { CardComponentComponent } from './components/card-component/card-compone
 import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
 import { ConfirmDeleteDialogComponent } from './components/dialogs/delete/confirm-delete-dialog.component';
-import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { EditConfirmationDialogComponent } from './components/dialogs/edit/confirm-edit-dialog.component';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
-import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
+import {  MatSnackBarModule } from '@angular/material/snack-bar';
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { SnackbarComponent } from 'src/app/shared/components/snackBar-message/snackbar.component';
 @NgModule({
   declarations: [
     ProductsListComponent,
@@ -25,7 +26,8 @@ import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
     ProductsListComponent,
     CardComponentComponent,
     ConfirmDeleteDialogComponent,
-    EditConfirmationDialogComponent
+    EditConfirmationDialogComponent,
+
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { LoaderModule } from 'src/app/shared/components/loader/loader.module';
     NavbarModule,
     MatDialogModule,
     MatSnackBarModule,
-    LoaderModule
+
+    NgxSpinnerModule
 
 
 
