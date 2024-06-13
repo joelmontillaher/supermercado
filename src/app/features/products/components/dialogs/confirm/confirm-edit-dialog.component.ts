@@ -6,9 +6,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './confirm-edit-dialog.component.html',
   styleUrls:['./confirm-edit-dialog.component.css']
 })
-export class EditConfirmationDialogComponent {
+export class ConfirmationDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<EditConfirmationDialogComponent>,
+    public dialogRef: MatDialogRef<ConfirmationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 

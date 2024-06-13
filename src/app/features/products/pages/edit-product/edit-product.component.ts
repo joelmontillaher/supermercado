@@ -4,10 +4,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ProductCategory, Product } from '../../interface/product.interface';
 import { MatDialog } from '@angular/material/dialog';
-import { EditConfirmationDialogComponent } from '../../components/dialogs/edit/confirm-edit-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SnackbarComponent } from '../../../../shared/components/snackBar-message/snackbar.component';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { ConfirmationDialogComponent } from '../../components/dialogs/confirm/confirm-edit-dialog.component';
 
 @Component({
   selector: 'app-edit-product',
@@ -23,13 +23,13 @@ export class EditProductComponent implements OnInit {
   photoPreviewUrl: string = '';
 
   constructor(
-    private fb: FormBuilder,
-    private productService: ProductService,
-    private route: ActivatedRoute,
-    private router: Router,
-    public dialog: MatDialog,
-    private snackBar: MatSnackBar,
-    private spinner: NgxSpinnerService
+    private readonly fb: FormBuilder,
+    private readonly productService: ProductService,
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly dialog: MatDialog,
+    private readonly snackBar: MatSnackBar,
+    private readonly spinner: NgxSpinnerService
   ) {}
 
   ngOnInit(): void {
@@ -57,7 +57,7 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  getProductDetails() {
+  getProductDetails(): void {
     this.spinner.show();
     this.productService.getProductById(this.productId).subscribe({
       next: (product: Product) => {
@@ -72,9 +72,14 @@ export class EditProductComponent implements OnInit {
       }
     });
   }
+
   openEditConfirmationDialog(): void {
-    const dialogRef = this.dialog.open(EditConfirmationDialogComponent, {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
+      data: {
+        title: 'Confirmar Edición',
+        message: '¿Estás seguro de que deseas guardar los cambios en este producto?'
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -86,12 +91,12 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.productForm.valid) {
       const updatedProduct: Product = this.productForm.value;
       this.spinner.show();
       this.productService.updateProduct(this.productId, updatedProduct).subscribe({
-        next: response => {
+        next: () => {
           this.productUpdated.emit();
           this.showSnackBar('El producto ha sido editado con éxito');
           this.router.navigate(['/list-products']);

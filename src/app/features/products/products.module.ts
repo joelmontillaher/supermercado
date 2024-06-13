@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductsRoutingModule } from './products.routing.module';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
 import { CreateProductComponent } from './pages/create-product/create-product.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
@@ -12,12 +12,11 @@ import { MatSelectModule } from '@angular/material/select'; // Importa MatSelect
 import { CardComponentComponent } from './components/card-component/card-component.component';
 import { NavbarModule } from 'src/app/shared/components/navbar/navbar.module';
 import { EditProductComponent } from './pages/edit-product/edit-product.component';
-import { ConfirmDeleteDialogComponent } from './components/dialogs/delete/confirm-delete-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { EditConfirmationDialogComponent } from './components/dialogs/edit/confirm-edit-dialog.component';
+import { ConfirmationDialogComponent } from './components/dialogs/confirm/confirm-edit-dialog.component';
 import {  MatSnackBarModule } from '@angular/material/snack-bar';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SnackbarComponent } from 'src/app/shared/components/snackBar-message/snackbar.component';
+
 @NgModule({
   declarations: [
     ProductsListComponent,
@@ -25,8 +24,8 @@ import { SnackbarComponent } from 'src/app/shared/components/snackBar-message/sn
     CreateProductComponent,
     ProductsListComponent,
     CardComponentComponent,
-    ConfirmDeleteDialogComponent,
-    EditConfirmationDialogComponent,
+
+    ConfirmationDialogComponent,
 
   ],
   imports: [
@@ -41,7 +40,7 @@ import { SnackbarComponent } from 'src/app/shared/components/snackBar-message/sn
     NavbarModule,
     MatDialogModule,
     MatSnackBarModule,
-
+    FormsModule,
     NgxSpinnerModule
 
 

@@ -20,19 +20,16 @@ export class CreateProductComponent {
   public categories = Object.values(ProductCategory);
 
   constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private productService: ProductService,
-    private snackBar: MatSnackBar,
-    private spinner: NgxSpinnerService
+    private readonly fb: FormBuilder,
+    private readonly router: Router,
+    private readonly productService: ProductService,
+    private readonly snackBar: MatSnackBar,
+    private readonly spinner: NgxSpinnerService
   ) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       category: ['', Validators.required],
-      price: [
-        '',
-        [Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)],
-      ],
+      price: ['',[Validators.required, Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
       description: [''],
       photoUrl: ['', [Validators.required, Validators.pattern('https?://.+')]],
     });
@@ -42,10 +39,10 @@ export class CreateProductComponent {
     });
   }
 
-  onSubmit() {
+  public onSubmit() {
     if (this.productForm.valid) {
       const newProduct = this.productForm.value;
-      this.spinner.show(); // Mostrar el spinner
+      this.spinner.show();
       this.productService.createProduct(newProduct).subscribe({
         next: (response) => {
           console.log('Producto añadido con éxito:', response);

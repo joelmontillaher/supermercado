@@ -1,92 +1,140 @@
 {
   "productos": [
     {
-      "name": "Berberechos1",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg",
-      "id": "b846"
+      "name": "Manzanas",
+      "category": "Fruta",
+      "price": 2.5,
+      "description": "Manzanas frescas y deliciosas.",
+      "photoUrl": "https://www.gustavoferrada.es/wp-content/uploads/2019/10/manzana-roja-1.jpg",
+      "id": "c953"
+    },
+    {
+      "name": "Plátanos4",
+      "category": "Fruta",
+      "price": 2,
+      "description": "Plátanos maduros y sabrosos.",
+      "photoUrl": "https://static.libertyprim.com/files/familles/banane-large.jpg?1569271725",
+      "id": "f149"
+    },
+    {
+      "name": "Fresas",
+      "category": "Fruta",
+      "price": 4,
+      "description": "Fresas maduras y dulces.",
+      "photoUrl": "https://elrasofrutasyhortalizas.es/wp-content/uploads/2022/05/Fresas-Caja-de-2-KG.jpeg",
+      "id": "h521"
     },
     {
       "id": "b846",
       "name": "Berberechos",
       "category": "Vegetal",
       "price": 3,
-      "description": "dsfg",
+      "description": "Berberechos frescos y sabrosos.",
       "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
     },
     {
-      "id": "b846",
-      "name": "Berberechos",
+      "name": "Lechuga",
       "category": "Vegetal",
+      "price": 1.8,
+      "description": "Lechuga verde y crujiente.",
+      "photoUrl": "https://www.dia.es/product_images/11462/11462_ISO_0_ES.jpg",
+      "id": "d365"
+    },
+    {
+      "name": "Zanahorias",
+      "category": "Vegetal",
+      "price": 2.2,
+      "description": "Zanahorias frescas y llenas de vitaminas.",
+      "photoUrl": "https://shop.veritas.es/documents/10180/23257/1096_G.jpg",
+      "id": "e721"
+    },
+    {
+      "name": "Pimientos",
+      "category": "Vegetal",
+      "price": 2.5,
+      "description": "Pimientos rojos y amarillos frescos.",
+      "photoUrl": "https://www.froiz.com/fotopro/3909.jpg",
+      "id": "g284"
+    },
+    {
+      "name": "Espárragos",
+      "category": "Vegetal",
+      "price": 5,
+      "description": "Espárragos frescos y tiernos.",
+      "photoUrl": "https://condalchef.com/pub/media/catalog/product/cache/8c87592ad8b4593f90b9a8a5a0206c49/7/6/76314.jpg",
+      "id": "i872"
+    },
+    {
+      "id": "0f13",
+      "name": "Hamburguesa",
+      "category": "Carne",
+      "price": 6,
+      "description": "Pack de 4 hamburguesas.",
+      "photoUrl": "https://static.carrefour.es/hd_510x_/img_pim_food/628659_00_1.jpg"
+    },
+    {
+      "name": "Filete de Pollo",
+      "category": "Carne",
+      "price": 8,
+      "description": "Filetes de pollo frescos.",
+      "photoUrl": "https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202204/22/00118482002195____9__600x600.jpg",
+      "id": "1a24"
+    },
+    {
+      "name": "Leche",
+      "category": "Lácteos",
+      "price": 1.2,
+      "description": "Leche fresca de vaca.",
+      "photoUrl": "https://catu.ec/wp-content/uploads/2022/09/Leche-De-Avena-Sin-Azu%CC%81car-946ml-Natures-Heart.jpg",
+      "id": "2b35"
+    },
+    {
+      "name": "Yogur",
+      "category": "Lácteos",
+      "price": 0.8,
+      "description": "Yogur natural sin azúcar.",
+      "photoUrl": "https://soria.e-leclerc.es/documents/10180/10815/8410500006105_G.jpg",
+      "id": "3c46"
+    },
+    {
+      "name": "Zumo de Naranja",
+      "category": "Bebida",
+      "price": 2.5,
+      "description": "Zumo de naranja natural.",
+      "photoUrl": "https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202011/09/00118657201572____1__600x600.jpg",
+      "id": "4d57"
+    },
+    {
+      "name": "Agua Mineral",
+      "category": "Bebida",
+      "price": 1,
+      "description": "Agua mineral embotellada.",
+      "photoUrl": "https://sgfm.elcorteingles.es/SGFM/dctm/MEDIA03/202306/19/00118630000539____5__600x600.jpg",
+      "id": "5e68"
+    },
+    {
+      "name": "Patatas Fritas",
+      "category": "Snack",
+      "price": 1.5,
+      "description": "Patatas fritas crujientes.",
+      "photoUrl": "https://a2.soysuper.com/c2bc6d7430b7a669e6d16b7703390a8e.1500.0.0.0.wmark.de16b64c.jpg",
+      "id": "6f79"
+    },
+    {
+      "name": "Galletas",
+      "category": "Snack",
+      "price": 2,
+      "description": "Galletas de chocolate.",
+      "photoUrl": "https://a0.soysuper.com/83b75b4ff0ca991c2ffc57d555330c82.1500.0.0.0.wmark.e90e5c07.jpg",
+      "id": "7g80"
+    },
+    {
+      "name": "Chocolate",
+      "category": "Snack",
       "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "b846",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 3,
-      "description": "dsfg",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
-    },
-    {
-      "id": "368d",
-      "name": "Berberechos",
-      "category": "Vegetal",
-      "price": 23,
-      "description": "es",
-      "photoUrl": "https://www.lareiragourmet.com/media/im/600x600-berberechos-rosalafuente-20170602115114-42.jpg"
+      "description": "Chocolate negro 70%.",
+      "photoUrl": "https://olefoodmarket.com/cdn/shop/products/39-Chocolate-con-leche-Hacendado-classic.jpg?v=1636545885",
+      "id": "8h91"
     }
   ]
 }

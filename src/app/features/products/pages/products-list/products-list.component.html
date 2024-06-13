@@ -6,6 +6,7 @@
 >
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
+
 <h1>Lista de Productos</h1>
 
 <div class="button-container">
@@ -14,14 +15,32 @@
   </button>
 </div>
 
+<div class="search-container mb-2">
+  <input
+    type="text"
+    placeholder="Buscar productos..."
+    [(ngModel)]="searchTerm"
+    (input)="filterProducts()"
+    class="form-control"
+  />
+</div>
+
+<div class="category-container mb-4">
+  <select [(ngModel)]="selectedCategory" (change)="filterProducts()" class="form-control">
+    <option value="">Buscar por categoría</option>
+    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+  </select>
+</div>
+
 <div class="container">
   <div class="row">
-    <ng-container *ngFor="let product of products">
+    <ng-container *ngFor="let product of filteredProducts">
       <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
         <div class="card-wrapper">
           <card-component
             [product]="product"
-            (productDeleted)="fetchProducts()"
+            (editClicked)="onEditProduct($event)"
+            (deleteClicked)="onDeleteProduct($event)"
           ></card-component>
         </div>
       </div>
