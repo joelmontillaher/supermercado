@@ -4,8 +4,12 @@
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  border-color: #b1c5c3;
+  border-width: 1px;
 }
-
+hr{
+  color: #9cbebb;
+}
 .card-header {
   text-align: center;
 }

@@ -25,7 +25,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "src/assets/theme-material.scss",
               "src/styles.css",
               "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
             ],

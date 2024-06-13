@@ -7,12 +7,13 @@
   <p style="font-size: 20px; color: white">Loading...</p>
 </ngx-spinner>
 <mat-card class="card">
-  <mat-card-header>
+  <mat-card-header >
     <mat-card-title>{{ product.name }}</mat-card-title>
-    <mat-card-subtitle>{{ product.category }}</mat-card-subtitle>
+    <mat-card-subtitle >{{ product.category }}</mat-card-subtitle>
   </mat-card-header>
   <hr>
   <img mat-card-image class="product-image" [src]="product.photoUrl" alt="Product Image">
+  <hr>
   <mat-card-content class="card-content">
     <p *ngIf="product.description">{{ product.description }}</p>
 
