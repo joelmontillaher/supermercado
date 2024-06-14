@@ -8,19 +8,19 @@
 </ngx-spinner>
 <mat-card class="card">
   <mat-card-header >
-    <mat-card-title>{{ product.name }}</mat-card-title>
-    <mat-card-subtitle >{{ product.category }}</mat-card-subtitle>
+    <mat-card-title>{{ product?.name}}</mat-card-title>
+    <mat-card-subtitle >{{ product?.category }}</mat-card-subtitle>
   </mat-card-header>
   <hr>
-  <img mat-card-image class="product-image" [src]="product.photoUrl" alt="Product Image">
+  <img mat-card-image class="product-image" [src]="product?.photoUrl" alt="Product Image">
   <hr>
   <mat-card-content class="card-content">
-    <p *ngIf="product.description">{{ product.description }}</p>
+    <p *ngIf="product?.description">{{ product?.description }}</p>
 
-    <p class="price">Precio: {{ product.price }}€</p>
+    <p class="price">Precio: {{ product?.price }}€</p>
   </mat-card-content>
   <mat-card-actions class="card-actions">
-    <button mat-button color="primary" (click)="onEdit(product.id)">Editar</button>
-    <button mat-button color="warn" (click)="onDelete(product.id)" class="eliminar">Eliminar</button>
+    <button mat-button color="primary" (click)="onEdit()">Editar</button>
+    <button mat-button color="warn" (click)="onDelete()" class="eliminar">Eliminar</button>
   </mat-card-actions>
 </mat-card>

@@ -57,7 +57,7 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  getProductDetails(): void {
+ public getProductDetails(): void {
     this.spinner.show();
     this.productService.getProductById(this.productId).subscribe({
       next: (product: Product) => {
@@ -73,7 +73,7 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  openEditConfirmationDialog(): void {
+ public openEditConfirmationDialog(): void {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
       width: '250px',
       data: {
@@ -91,7 +91,7 @@ export class EditProductComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     if (this.productForm.valid) {
       const updatedProduct: Product = this.productForm.value;
       this.spinner.show();

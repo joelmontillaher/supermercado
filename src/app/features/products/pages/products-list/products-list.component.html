@@ -39,8 +39,8 @@
         <div class="card-wrapper">
           <card-component
             [product]="product"
-            (editClicked)="onEditProduct($event)"
-            (deleteClicked)="onDeleteProduct($event)"
+            (editClicked)="onEditProduct(product.id)"
+            (deleteClicked)="onDeleteProduct(product.id)"
           ></card-component>
         </div>
       </div>

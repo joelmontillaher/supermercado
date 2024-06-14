@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, Input } from '@angular/core';
+import { Product } from '../../interface/product.interface';
 
 @Component({
   selector: 'card-component',
@@ -6,15 +7,15 @@ import { Component, Output, EventEmitter, Input } from '@angular/core';
   styleUrls: ['./card-component.component.css']
 })
 export class CardComponentComponent {
-  @Input() product: any;
-  @Output() editClicked = new EventEmitter<string>();
-  @Output() deleteClicked = new EventEmitter<string>();
+  @Input() product: Product | null = null;
+  @Output() editClicked = new EventEmitter<void>();
+  @Output() deleteClicked = new EventEmitter<void>();
 
-  onEdit(productId: string) {
-    this.editClicked.emit(productId);
+  onEdit():void {
+    this.editClicked.emit();
   }
 
-  onDelete(productId: string) {
-    this.deleteClicked.emit(productId);
+  onDelete():void {
+    this.deleteClicked.emit();
   }
 }
