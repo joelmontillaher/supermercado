@@ -97,4 +97,10 @@ export class ProductsListComponent implements OnInit {
       duration: 3000,
     });
   }
+
+
+  public onAddToCart(product: Product) {
+
+    this.router.navigate(['/cart']);
+  }
 }
